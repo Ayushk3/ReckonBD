@@ -1,4 +1,4 @@
-const express =  require('express');
+const express = require('express');
 const app = express();
 const cors = require("cors")
 
@@ -8,19 +8,19 @@ const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
 app.use(cors({
-    origin: 'https://mediped.netlify.app'
+    origin: ' https://mediped.netlify.app'
 }))
 require("./Config/database").connect()
 
 // route import and mount 
 const user = require("./Routes/routes");
-app.use("",user);
+app.use('', user);
 
 // Activate 
-app.listen(PORT,() => {
-    console.log("Server Run at ",PORT);
+app.listen(PORT, () => {
+    console.log("Server Run at ", PORT);
 })
 
-app.get("/", (req,res) => {
+app.get("/", (req, res) => {
     res.send("<h1>SERVER SIDE IS READY</h1>")
 })
